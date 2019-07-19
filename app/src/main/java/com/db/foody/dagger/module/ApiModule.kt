@@ -5,6 +5,7 @@ import com.db.foody.data.sync.NetInterceptor
 import com.db.foody.data.sync.ApiService
 import com.db.foody.util.BASE_URL
 import com.db.foody.util.OKHTTP_TIMEOUT
+import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -13,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+@Module
 class ApiModule {
 
     @Singleton
