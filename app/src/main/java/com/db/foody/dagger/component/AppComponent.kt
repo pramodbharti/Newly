@@ -5,8 +5,10 @@ import com.db.foody.dagger.module.AppModule
 import com.db.foody.dagger.module.RecipeRepoModule
 import com.db.foody.viewmodel.MainActivityViewModel
 import dagger.Component
+import javax.inject.Singleton
 
-@Component(modules = [ApiModule::class,AppModule::class,RecipeRepoModule::class])
+@Singleton
+@Component(modules = [AppModule::class,ApiModule::class,RecipeRepoModule::class])
 interface AppComponent {
     fun inject(mainActivityViewModel:MainActivityViewModel)
 }

@@ -5,7 +5,7 @@ import com.db.foody.dagger.component.AppComponent
 import com.db.foody.dagger.component.DaggerAppComponent
 import com.db.foody.dagger.module.AppModule
 
-class FoodyApplication : Application(){
+class FoodyApp : Application(){
 
     companion object{
         lateinit var component:AppComponent

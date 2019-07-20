@@ -23,13 +23,16 @@
                 android:layout_width="400dp"
                 android:scaleType="centerCrop"
                 android:contentDescription="@string/app_name"
-                android:layout_height="200dp"/>
+                android:layout_height="300dp"/>
         <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_below="@+id/image"
                 android:textSize="18sp"
                 android:gravity="start"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/rank"
                 android:padding="8dp"
                 android:layout_height="wrap_content"/>
         <TextView

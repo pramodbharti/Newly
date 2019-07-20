@@ -2,7 +2,7 @@ package com.db.foody.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.db.foody.app.FoodyApplication
+import com.db.foody.app.FoodyApp
 import com.db.foody.data.model.Recipe
 import com.db.foody.data.model.RecipeList
 import com.db.foody.data.sync.RecipesRepository
@@ -16,39 +16,41 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
 class MainActivityViewModel : ViewModel() {
-    private val state: MutableLiveData<MainActivityState>
-    lateinit var repository: RecipesRepository
-    private var currentPage = 0
-    var recipesAdapter = RecipesAdapter(ArrayList())
-    var searchQuery = ""
-    private lateinit var searchEmitter: PublishSubject<String>
-    private lateinit var disposable: CompositeDisposable
+    val state: MutableLiveData<MainActivityState>
 
     init {
-        FoodyApplication.component.inject(this)
+        FoodyApp.component.inject(this)
         state = MutableLiveData()
         initRx()
         initSearch()
     }
 
-    fun search(query: String) {
+    @Inject lateinit var repository: RecipesRepository
+    private var currentPage = 1
+    var recipesAdapter = RecipesAdapter(ArrayList())
+    var searchQuery = ""
+    private lateinit var searchEmitter: PublishSubject<String>
+    private lateinit var disposable: CompositeDisposable
+
+    fun search(query: String?=null) {
         if (searchQuery != query) {
             recipesAdapter.recipes = ArrayList()
             recipesAdapter.notifyDataSetChanged()
         }
-        searchQuery = query
+        searchQuery = query!!
         searchEmitter.onNext(query)
     }
 
-    private fun searchRecipes(query: String): Maybe<RecipeList> {
+    private fun searchRecipes(query: String?=null): Maybe<RecipeList> {
         return repository.getRecipes(query, currentPage)
     }
 
-    fun loadMore(query: String) {
+    fun loadMore(query: String?=null) {
         currentPage++
-        searchEmitter.onNext(query)
+        searchEmitter.onNext(query!!)
     }
 
     private fun initRx() {
@@ -61,14 +63,14 @@ class MainActivityViewModel : ViewModel() {
             searchEmitter
                 .subscribeOn(Schedulers.io())
                 .debounce(250, TimeUnit.MILLISECONDS)
-                .doOnNext {
+                /*.doOnNext {
                     if (it.length < 2) {
                         state.postValue(MainActivityState.shortQuery())
                     }
                 }
                 .filter {
                     it.length > 1
-                }
+                }*/
                 .doOnNext { state.postValue(MainActivityState.loading()) }
                 .doOnTerminate { state.postValue(MainActivityState.complete()) }
                 .switchMap {
@@ -90,12 +92,12 @@ class MainActivityViewModel : ViewModel() {
     }
 
     private fun updateAdapter(data: List<Recipe>) {
-        if (searchQuery.length > 1) {
+        //if (searchQuery.length > 1) {
             recipesAdapter.recipes = recipesAdapter.recipes.plus(data)
             recipesAdapter.notifyDataSetChanged()
-        } else {
-            recipesAdapter.recipes = ArrayList()
-        }
+        //} else {
+          //  recipesAdapter.recipes = ArrayList()
+        //}
     }
 
     @Synchronized

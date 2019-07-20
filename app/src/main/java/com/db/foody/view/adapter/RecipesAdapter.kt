@@ -28,16 +28,18 @@ class RecipesAdapter(
 
         private val image = v.image
         private val title = v.title
+        private val score = v.rank
 
         fun bindItems(recipe: Recipe) {
             Picasso.get()
-                .load((recipe.imageUrl))
-                .placeholder(R.drawable.place_holder)
-                .error(R.drawable.place_holder)
+                .load((recipe.imageUrl).replace("http","https"))
+                .placeholder(R.drawable.recipe_place_holder)
+                .error(R.drawable.recipe_error)
                 .resize(400,300)
                 .centerCrop()
                 .into(image)
             title.text=recipe.title
+            score.text = recipe.socialRanking.toInt().toString()
         }
     }
 }

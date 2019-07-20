@@ -16,15 +16,14 @@ import javax.inject.Singleton
 
 @Module
 class ApiModule {
-
-    @Singleton
     @Provides
+    @Singleton
     internal fun provideInterceptor(): NetInterceptor {
         return NetInterceptor()
     }
 
-    @Singleton
     @Provides
+    @Singleton
     internal fun provideHttpClient(interceptor: NetInterceptor):OkHttpClient{
         val okHttpClient = OkHttpClient.Builder()
             .callTimeout(OKHTTP_TIMEOUT,TimeUnit.SECONDS)
@@ -44,13 +43,10 @@ class ApiModule {
 
         return okHttpClient.build()
     }
-
     @Provides
-    internal fun provideApiService(okHttpClient: OkHttpClient,interceptor: NetInterceptor): ApiService {
+    internal fun provideApiService(okHttpClient: OkHttpClient): ApiService {
 
-        val client = okHttpClient.newBuilder()
-            .addInterceptor(interceptor)
-            .build()
+        val client = okHttpClient.newBuilder().build()
 
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)

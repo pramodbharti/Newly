@@ -1,16 +1,15 @@
 package com.db.foody.extensions
 
 import android.content.Context
+import android.view.Gravity
 import android.widget.Toast
+import com.db.foody.view.custom.toast
 
-fun Context.toastShort(message: String) =
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+fun Context.toastShort(message: String) = Toast(this)
+    .toast(this, message, Gravity.CENTER, Toast.LENGTH_SHORT)
 
-fun Context.toastShort(textRes: Int) =
-    Toast.makeText(this, textRes, Toast.LENGTH_SHORT).show()
+fun Context.toastLong(message: String) = Toast(this)
+    .toast(this, message, Gravity.CENTER, Toast.LENGTH_LONG)
 
-fun Context.toastLong(text: String) =
-    Toast.makeText(this, text, Toast.LENGTH_LONG).show()
 
-fun Context.toastLong(textRes: Int) =
-    Toast.makeText(this, textRes, Toast.LENGTH_LONG).show()
+

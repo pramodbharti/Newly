@@ -8,9 +8,8 @@ import javax.inject.Singleton
 
 @Module
 class RecipeRepoModule {
-
-    @Singleton
     @Provides
+    @Singleton
     internal fun provideRecipesRepository(apiService: ApiService):RecipesRepository{
     return RecipesRepository(apiService)
     }

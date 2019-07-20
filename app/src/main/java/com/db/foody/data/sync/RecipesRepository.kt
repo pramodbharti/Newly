@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 class RecipesRepository(private val apiService: ApiService) {
     private var cache = RecipeCache()
 
-    fun getRecipes(search: String, page: Int): Maybe<RecipeList> {
+    fun getRecipes(search: String?=null, page: Int?=null): Maybe<RecipeList> {
         return Maybe
             .concat(
                 cache.getPageOfRecipes(search, page)
@@ -34,18 +34,18 @@ class RecipesRepository(private val apiService: ApiService) {
             cachedRecipes.clear()
         }
 
-        fun getPageOfRecipes(search: String, page: Int): Maybe<RecipeList> {
+        fun getPageOfRecipes(search: String?=null, page: Int?=null): Maybe<RecipeList> {
             if (searchQuery != search)
                 clear()
-            searchQuery = search
+            searchQuery = search!!
             if (cachedRecipes.keys.contains(page))
                 return maybe(cachedRecipes[page])
             return Maybe.empty()
         }
 
-        fun update(search: String, page: Int, data: RecipeList) {
+        fun update(search: String?=null, page: Int?=null, data: RecipeList) {
             if (searchQuery == search)
-                cachedRecipes[page] = data
+                cachedRecipes[page!!] = data
         }
     }
 }

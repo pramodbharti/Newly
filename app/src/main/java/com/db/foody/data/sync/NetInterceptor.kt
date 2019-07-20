@@ -16,11 +16,9 @@ class NetInterceptor : Interceptor {
             .addQueryParameter(KEY, BuildConfig.API_KEY)
             .build()
 
-        val newUrl = url.toString().replace("http","https")
-
         val requestBuilder = ongoing
             .newBuilder()
-            .url(newUrl)
+            .url(url)
             .addHeader("Content-Type", "application/json")
 
         print(requestBuilder.toString())

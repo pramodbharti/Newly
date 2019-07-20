@@ -4,10 +4,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.db.foody.util.VISIBLE_THRESHOLD
 
-abstract class InfiniteRecyclerViewListener (private val layoutManager: LinearLayoutManager) : RecyclerView.OnScrollListener(){
-    private var loading=true
+abstract class InfiniteRecyclerViewListener(private val layoutManager: LinearLayoutManager) :
+    RecyclerView.OnScrollListener() {
+    private var loading = true
     private var currentPage = 1
-    private var previousTotal=0
+    private var previousTotal = 0
 
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -16,19 +17,23 @@ abstract class InfiniteRecyclerViewListener (private val layoutManager: LinearLa
         val totalItemCount = layoutManager.itemCount
         val firstVisibleItem = layoutManager.findFirstVisibleItemPosition()
 
-        if(loading){
-            if(totalItemCount>previousTotal){
-                loading=false
-                previousTotal=totalItemCount
+        if (loading) {
+            if (totalItemCount > previousTotal) {
+                loading = false
+                previousTotal = totalItemCount
             }
         }
 
-        if(!loading && totalItemCount-visibleItemCount<=firstVisibleItem+ VISIBLE_THRESHOLD){
+        if (!loading && (totalItemCount - visibleItemCount) <= firstVisibleItem + VISIBLE_THRESHOLD) {
             //End of list has been reached
             onLoadMore(++currentPage)
-            loading=true
+            loading = true
         }
     }
 
-    abstract fun onLoadMore(currentPage:Int)
+    fun setLoading(loading: Boolean) {
+        this.loading = loading
+    }
+
+    abstract fun onLoadMore(currentPage: Int)
 }

@@ -24,7 +24,7 @@ data class MainActivityState private constructor(val status:Status,val error:Thr
 
 
         fun error(e:Throwable):MainActivityState{
-            return MainActivityState(Status.ERROR)
+            return MainActivityState(Status.ERROR,e)
         }
     }
 
