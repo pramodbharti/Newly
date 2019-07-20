@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.food_list.view.*
 
 
 class RecipesAdapter(
-    private val recipes: List<Recipe>
+    var recipes: List<Recipe>
 ) : RecyclerView.Adapter<RecipesAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
