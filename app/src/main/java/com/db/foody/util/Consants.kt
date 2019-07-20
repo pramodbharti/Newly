@@ -6,3 +6,5 @@ const val SEARCH = "search"
 const val GET ="get"
 const val DATABASE = "foody.db"
 const val OKHTTP_TIMEOUT = 15L //In Seconds
+//Number of items left in list before we start loading more
+const val VISIBLE_THRESHOLD = 5
