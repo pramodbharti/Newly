@@ -34,6 +34,7 @@ class ImagesAdapter(
             Glide.with(view)
                 .load(image.images?.first()?.link)
                 .placeholder(R.drawable.ic_image_24dp)
+                .error(R.drawable.ic_image_24dp)
                 .into(imageView)
 
             title.text=image.title

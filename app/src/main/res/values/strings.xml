@@ -5,6 +5,6 @@
     <string name="title_activity_image_detail">ImageDetailActivity</string>
     <string name="score">Score: %1$d</string>
     <string name="transition_name">image_transition</string>
-    <string name="no_image">No image found</string>
+    <string name="no_image">No results</string>
     <string name="search_too_short">Search Query Too Short</string>
 </resources>

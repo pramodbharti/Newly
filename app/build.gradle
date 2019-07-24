@@ -22,7 +22,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables.useSupportLibrary = true
-        //buildConfigField 'String', 'API_KEY', keystoreProperties['FOOD2FORK_API_KEY']
         buildConfigField 'String', 'API_KEY', keystoreProperties['IMGUR_API']
 
     }
