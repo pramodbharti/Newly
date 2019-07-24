@@ -1,5 +1,7 @@
 # Newly
 
+![App Icon](https://raw.githubusercontent.com/pramodbharti/Newly/master/images/app_icon.png)
+
 # How to run this app
 1. Get your Client-ID or API Key from [Imgur](https://api.imgur.com/)
 2. Create a file `keystore.properties` in project directory
