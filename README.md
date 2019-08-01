@@ -24,6 +24,10 @@
 
 ## TODO
 
+- [ ] Detail Activity
+- [ ] Transition animation
+- [ ] Custom search view
+
 ### Please click the :star: button on the upper right of this repo. :v:
 
 
