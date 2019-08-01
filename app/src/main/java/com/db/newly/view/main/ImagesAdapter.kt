@@ -40,7 +40,7 @@ class ImagesAdapter(
                 .error(R.drawable.ic_image_24dp)
                 .into(imageView)
 
-            title.text=image.title
+            title.text = image.title
             upvote.text = image.ups.toString()
             downvote.text = image.downs.toString()
             views.text = image.views.toString()
