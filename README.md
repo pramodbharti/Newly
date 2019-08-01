@@ -13,9 +13,9 @@
 ## Screenshots
 
 <p align="center"> 
-<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/nature.png">
-<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/india.png">
-<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/blank.png">
+<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/nature.png" width="200">
+<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/india.png" width="200">
+<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/blank.png" width="200">
 </p>
 
 <p align="center"> 
