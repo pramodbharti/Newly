@@ -13,9 +13,9 @@
 ## Screenshots
 
 <p align="center"> 
-<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/nature.png" width="200">
-<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/india.png" width="200">
-<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/blank.png" width="200">
+<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/nature.png" width="300">
+<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/india.png" width="300">
+<img src="https://raw.githubusercontent.com/pramodbharti/Newly/master/images/blank.png" width="300">
 </p>
 
 <p align="center"> 
@@ -24,6 +24,6 @@
 
 ## TODO
 
-### Please click the :star: button on the upper right of this page. :v:
+### Please click the :star: button on the upper right of this repo. :v:
 
 
