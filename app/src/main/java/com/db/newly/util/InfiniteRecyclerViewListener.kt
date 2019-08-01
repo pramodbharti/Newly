@@ -1,4 +1,4 @@
-package com.db.newly.view.adapter
+package com.db.newly.util
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView

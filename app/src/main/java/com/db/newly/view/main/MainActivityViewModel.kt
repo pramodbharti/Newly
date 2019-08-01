@@ -1,4 +1,4 @@
-package com.db.newly.viewmodel
+package com.db.newly.view.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,8 +7,6 @@ import com.db.newly.data.model.ImagePost
 import com.db.newly.data.model.ImgurResponse
 import com.db.newly.data.sync.ImagesRepository
 import com.db.newly.extensions.isValidURL
-import com.db.newly.view.adapter.ImagesAdapter
-import com.db.newly.viewmodel.state.MainActivityState
 
 import io.reactivex.Maybe
 import io.reactivex.android.schedulers.AndroidSchedulers

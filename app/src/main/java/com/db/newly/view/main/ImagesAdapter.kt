@@ -1,4 +1,4 @@
-package com.db.newly.view.adapter
+package com.db.newly.view.main
 
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +28,10 @@ class ImagesAdapter(
         private val view: View = v
         private val imageView = view.image
         private val title = view.title
-        private val score = view.rank
+        private val upvote = view.up
+        private val downvote = view.down
+        private val views = view.views
+        private val share = view.share
 
         fun bindItems(image: ImagePost) {
             Glide.with(view)
@@ -38,7 +41,9 @@ class ImagesAdapter(
                 .into(imageView)
 
             title.text=image.title
-            score.text = image.score.toString()
+            upvote.text = image.ups.toString()
+            downvote.text = image.downs.toString()
+            views.text = image.views.toString()
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.db.newly.view.activity
+package com.db.newly.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

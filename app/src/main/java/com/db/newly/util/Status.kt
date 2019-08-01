@@ -1,4 +1,4 @@
-package com.db.newly.viewmodel.state
+package com.db.newly.util
 
 enum class Status {
     LOADING,
